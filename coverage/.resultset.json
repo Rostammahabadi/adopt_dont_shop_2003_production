@@ -181,10 +181,36 @@
       "/Users/kyleiverson/turing/2module/adopt_dont_shop_2003/config/routes.rb": [
         1,
         1,
+        1,
         null
       ],
       "/Users/kyleiverson/turing/2module/adopt_dont_shop_2003/app/helpers/application_helper.rb": [
         1,
+        null
+      ],
+      "/Users/kyleiverson/turing/2module/adopt_dont_shop_2003/spec/features/shelters/users_can_see_shelter_details_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/kyleiverson/turing/2module/adopt_dont_shop_2003/app/models/shelter.rb": [
@@ -201,6 +227,10 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/kyleiverson/turing/2module/adopt_dont_shop_2003/app/controllers/application_controller.rb": [
@@ -209,6 +239,6 @@
         null
       ]
     },
-    "timestamp": 1588703849
+    "timestamp": 1588809401
   }
 }
