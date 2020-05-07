@@ -1,6 +1,8 @@
 <a href='/shelters'>Shelters</a>
 <h2><%= @shelter.name %></h2>
-<p><%= @shelter.address %></p
-<p><%= @shelter.city %></p
-<p><%= @shelter.state %></p
-<p><%= @shelter.zip %></p
+<p><%= @shelter.address %></p>
+<p><%= @shelter.city %></p>
+<p><%= @shelter.state %></p>
+<p><%= @shelter.zip %></p>
+<%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
+
