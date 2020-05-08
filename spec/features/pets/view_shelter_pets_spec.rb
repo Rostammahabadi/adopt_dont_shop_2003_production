@@ -57,11 +57,3 @@ RSpec.describe "Pets index page", type: :feature do
         expect(page).to_not have_css("img[src*='https://static01.nyt.com/images/2019/06/17/science/17DOGS/17DOGS-superJumbo.jpg']")
     end
 end
-
-# As a visitor
-# When I visit '/shelters/:shelter_id/pets'
-# Then I see each Pet that can be adopted from that Shelter with that shelter_id including the Pet's:
-# - image
-# - name
-# - approximate age
-# - sex
