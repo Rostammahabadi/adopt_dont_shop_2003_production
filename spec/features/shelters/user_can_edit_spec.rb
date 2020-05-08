@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.describe "Shelter show page", type: :feature do
-    it "can see shelter details" do
+RSpec.describe "When a user clicks update shelter", type: :feature do
+    it "can update shelter details" do
         shelter_1 = Shelter.create( name:    "4 Paws Rescue",
                                     address: "6567 W Long Dr.",
                                     city:    "Littleton",
