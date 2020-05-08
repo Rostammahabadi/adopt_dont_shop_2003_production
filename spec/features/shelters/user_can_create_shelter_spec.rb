@@ -12,6 +12,7 @@ RSpec.describe "Create shelter page", type: :feature do
         fill_in :zip, with: "80123"
         click_button "Submit"
 
+        expect(current_path).to eq("/shelters")
         expect(page).to have_content("Dog Town")
     end
 end
