@@ -1,0 +1,8 @@
+<h1>Pets</h1>
+<a href="/pets/new">New Pet</a>
+<% @shelter_pets.each do |pet| %>
+    <figcaption><%= pet.name %></figcaption>
+    <img src="<%= pet.image %>" class="pet-image"></img>
+    <p>Approximate age: <%= pet.age %></p>
+    <p>Sex: <%= pet.sex %></p>
+<% end %>
