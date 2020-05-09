@@ -34,7 +34,7 @@ describe "When I visit the shelter index Page", type: :feature do
         expect(page).to_not have_content("#{shelter_1.name}")
     end
 
-    it "has shelter names as clickable links to their show page" do
+    it "has shelter names as clickable links to their index page" do
         shelter_1 = Shelter.create( name: "4 Paws Rescue",
                     address: "6567 W Long Dr.",
                     city: "Littleton",
