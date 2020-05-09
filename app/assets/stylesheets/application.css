@@ -14,8 +14,10 @@
  *= require_self
  */
 
- img {
+ .pet-image {
      float: left;
-     width: 20%;
-     margin: 0 auto;
+     width: 100%;
+     margin: 0px auto;
  }
+
+

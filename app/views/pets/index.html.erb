@@ -1,11 +1,14 @@
 <h1>All Pets</h1>
-<a href="/pets/new">New Pet</a>
+
 <% @pets.each do |pet| %>
-    <figcaption><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "name-link" %></figcaption>
-    <img src="<%= pet.image %>" class="pet-image"></img>
-    <p>Approximate age: <%= pet.age %></p>
-    <p>Sex: <%= pet.sex %></p>
-    <p>Shelter: <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}", class: "name-link" %></p>
-    <%= link_to "Update", "/pets/#{pet.id}/edit" %>
-    <%= link_to "Delete", "/pets/#{pet.id}", method: :delete %>
+    <div class="pet-entry">
+        <figcaption><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "name-link" %></figcaption>
+        <img src="<%= pet.image %>" class="pet-image"></img>
+        <p>Approximate age: <%= pet.age %></p>
+        <p>Sex: <%= pet.sex %></p>
+        <p>Shelter: <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}", class: "name-link" %></p>
+        <%= link_to "Update", "/pets/#{pet.id}/edit" %>
+        <%= link_to "Delete", "/pets/#{pet.id}", method: :delete %>
+    </div><br>
+
 <% end %>
