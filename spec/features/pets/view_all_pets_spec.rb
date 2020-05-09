@@ -48,6 +48,12 @@ RSpec.describe "Pets index page", type: :feature do
         expect(page).to have_content(pet_1.shelter.name)
         expect(page).to have_css("img[src*='https://i.pinimg.com/originals/47/4e/7d/474e7d2479512428a1a4716d5d1656eb.jpg']")
         
+        expect(page).to have_content(pet_2.name)
+        expect(page).to have_content(pet_2.age)
+        expect(page).to have_content(pet_2.sex)
+        expect(page).to have_content(pet_2.shelter.name)
+        expect(page).to have_css("img[src*='https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/01/a0001799/img/basic/a0001799_main.jpg?20191118104245&q=80&rw=750&rh=536']")
+        
         expect(page).to have_content(pet_3.name)
         expect(page).to have_content(pet_3.age)
         expect(page).to have_content(pet_3.sex)
