@@ -1,5 +1,5 @@
 <h1>Pets</h1>
-<a href="/pets/new">New Pet</a>
+<%= link_to "Create Pet", "/shelters/#{params[:shelter_id]}/pets/new" %>
 <% @shelter_pets.each do |pet| %>
     <figcaption><%= pet.name %></figcaption>
     <img src="<%= pet.image %>" class="pet-image"></img>
