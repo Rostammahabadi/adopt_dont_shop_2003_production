@@ -1,7 +1,7 @@
 <h1>All Pets</h1>
 <a href="/pets/new">New Pet</a>
 <% @pets.each do |pet| %>
-    <figcaption><%= pet.name %></figcaption>
+    <figcaption><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "name-link" %></figcaption>
     <img src="<%= pet.image %>" class="pet-image"></img>
     <p>Approximate age: <%= pet.age %></p>
     <p>Sex: <%= pet.sex %></p>
