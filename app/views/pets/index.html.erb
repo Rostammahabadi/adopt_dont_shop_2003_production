@@ -1,14 +1,18 @@
-<h1>All Pets</h1>
+<h1 class="heading">All Pets</h1>
 
 <% @pets.each do |pet| %>
-    <div class="pet-entry">
-        <figcaption><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "name-link" %></figcaption>
-        <img src="<%= pet.image %>" class="pet-image"></img>
-        <p>Approximate age: <%= pet.age %></p>
-        <p>Sex: <%= pet.sex %></p>
-        <p>Shelter: <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}", class: "name-link" %></p>
-        <%= link_to "Update", "/pets/#{pet.id}/edit" %>
-        <%= link_to "Delete", "/pets/#{pet.id}", method: :delete %>
-    </div><br>
+    <div class="row pet-entry">
+        <div class="col-4"
+            <figcaption><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "font-heavy light-text" %></figcaption>
+            <img src="<%= pet.image %>" class="pet-image"></img>
+        </div>
+        <div class="col-8">
+            <p class="font-light light-text">Approximate age: <%= pet.age %></p>
+            <p class="font-light light-text">Sex: <%= pet.sex %></p>
+            <p class= "font-light light-text">Shelter: <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}", class: "light-text" %></p>
+            <%= link_to "Update", "/pets/#{pet.id}/edit", class: "light-text" %>
+            <%= link_to "Delete", "/pets/#{pet.id}", method: :delete, class: "light-text" %>
+        </div>
+    </div>
 
 <% end %>

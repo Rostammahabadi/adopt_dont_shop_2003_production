@@ -20,4 +20,35 @@
      margin: 0px auto;
  }
 
+ .shelter-entry {
+     margin-bottom: 1px;
+     background-color: #353535;
+ }
+
+ .light-text{
+     color: whitesmoke;
+ }
+
+ .heading {
+ }
+
+ nav {
+     background-color: #606060;
+ }
+
+ .nav-link {
+     color: whitesmoke;
+ }
+
+ .new-entry {
+     background-color: #500000;
+ }
+
+ .pet-entry {
+     background-color: #353535;
+     margin-bottom: 1px;
+ }
+
+
+
 
