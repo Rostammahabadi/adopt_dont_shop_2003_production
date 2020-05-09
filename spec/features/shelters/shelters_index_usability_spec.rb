@@ -16,4 +16,22 @@ describe "When I visit the shelter index Page", type: :feature do
         click_link "Update"
         expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
     end
+
+    it "has delete links for each shelter" do
+        shelter_1 = Shelter.create( name: "4 Paws Rescue",
+                    address: "6567 W Long Dr.",
+                    city: "Littleton",
+                    state: "CO",
+                    zip: "80123")
+
+        visit "/shelters"
+        expect(page).to have_content("#{shelter_1.name}")
+
+
+        click_link "Delete"
+
+        expect(current_path).to eq("/shelters")
+        expect(page).to_not have_content("#{shelter_1.name}")
+
+    end
 end
