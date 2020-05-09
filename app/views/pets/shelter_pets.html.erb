@@ -1,6 +1,6 @@
-<h1>Pets</h1>
-<div class="row new-entry">
-    <%= link_to "Create Pet", "/shelters/#{params[:shelter_id]}/pets/new", class: "font-heavy light-text" %>
+<h1>Our Pets</h1>
+<div class="row new-entry extra-padding">
+    <%= link_to "Create Pet", "/shelters/#{params[:shelter_id]}/pets/new", class: "font-heavy" %>
 </div>
 <% @shelter_pets.each do |pet| %>
     <div class="row pet-entry">

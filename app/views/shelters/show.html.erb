@@ -1,9 +1,18 @@
-<a href='/shelters'>Shelters</a>
-<h2><%= @shelter.name %></h2>
-<p><%= @shelter.address %></p>
-<p><%= @shelter.city %></p>
-<p><%= @shelter.state %></p>
-<p><%= @shelter.zip %></p>
-<%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
-<%= link_to "Delete", "/shelters/#{@shelter.id}", method: :delete %>
+<div class="row">
+    <h2 class="col-6"><%= @shelter.name %></h2>
+    <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit", class: "col-3 font-heavy shelter-update-top" %>
+    <%= link_to "View Pets", "/shelters/#{@shelter.id}/pets", class: "col-3 font-heavy shelter-update-top" %>
+
+</div>
+<div class="row shelter-info"
+    <div class="col-6">
+        <p class="light-text"><%= @shelter.address %></p>
+        <p class="light-text"><%= @shelter.city %></p>
+        <p class="light-text"><%= @shelter.state %></p>
+        <p class="light-text"><%= @shelter.zip %></p>
+    </div>
+    <div class="col-6">
+        <%= link_to "Delete", "/shelters/#{@shelter.id}", method: :delete, class: "font-heavy" %>
+    </div>
+</div>
 

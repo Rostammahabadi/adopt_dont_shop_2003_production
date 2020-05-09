@@ -29,9 +29,6 @@
      color: whitesmoke;
  }
 
- .heading {
- }
-
  nav {
      background-color: #606060;
  }
@@ -41,13 +38,27 @@
  }
 
  .new-entry {
-     background-color: #500000;
+     background-color: mediumaquamarine;
  }
 
  .pet-entry {
      background-color: #353535;
      margin-bottom: 1px;
  }
+.shelter-update-top{
+    text-align: center;
+    padding: 15px 0;
+    background-color: mediumaquamarine;
+}
+
+.shelter-info {
+    background-color: #353535;
+    padding-top: 4px;
+}
+
+.extra-padding {
+    padding: 8px;
+}
 
 
 

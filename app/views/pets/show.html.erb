@@ -1,9 +1,17 @@
-<h2><%= @pet.name %></h2>
-<img src='<%= @pet.image %>'></img>
-<p><%= @pet.description %></p>
-<p>Approximate Age: <%= @pet.age %></p>
-<p>Sex: <%= @pet.sex %></p>
-<p>Adoption status: <%= @pet.adoption_status %></p>
-<%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
-<%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+<div class="row">
+    <h2><%= @pet.name %></h2>
+</div>
+<div class="row pet-entry">
+    <div class="col-6">
+        <img src='<%= @pet.image %>' class="pet-image"></img>
+    </div>
+    <div class="col-6">
+        <p class="light-text"><%= @pet.description %></p>
+        <p class="light-text">Approximate Age: <%= @pet.age %></p>
+        <p class="light-text">Sex: <%= @pet.sex %></p>
+        <p class="light-text">Adoption status: <%= @pet.adoption_status %></p>
+        <p><%= link_to "Update Pet", "/pets/#{@pet.id}/edit", class: "font-heavy light-text" %></p>
+        <p><%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete, class: "font-heavy light-text" %></p>
+    </div>
+</div>
 
