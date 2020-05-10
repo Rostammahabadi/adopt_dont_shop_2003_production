@@ -10,7 +10,7 @@ RSpec.describe "Create shelter page", type: :feature do
         fill_in :city, with: "Ken Caryl"
         fill_in :state, with: "CO"
         fill_in :zip, with: "80123"
-        click_button "Submit"
+        click_button "Create Shelter"
 
         expect(current_path).to eq("/shelters")
         expect(page).to have_content("Dog Town")
