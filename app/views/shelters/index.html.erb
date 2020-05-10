@@ -1,5 +1,11 @@
-<h1>All Shelters</h1>
-<a href="/shelters/new">New Shelter</a>
+<h1 class="heading">All Shelters</h1>
+<div class="row new-entry">
+    <a href="/shelters/new" class="col-2 font-heavy">New Shelter</a><br>
+</div>
 <% @shelters.each do |shelter| %>
-    <h2><%= shelter.name %></h2>
+    <div class="row shelter-entry">
+        <%= link_to "#{shelter.name}", "/shelters/#{shelter.id}", class: "col-3 font-heavy light-text" %>
+        <%= link_to "Update", "/shelters/#{shelter.id}/edit", class: "col-2 light-text" %>
+        <%= link_to "Delete", "/shelters/#{shelter.id}", method: :delete, class: "col-2 light-text"  %>
+    </div>
 <% end %>

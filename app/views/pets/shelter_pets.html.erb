@@ -1,8 +1,18 @@
-<h1>Pets</h1>
-<%= link_to "Create Pet", "/shelters/#{params[:shelter_id]}/pets/new" %>
+<h1>Our Pets</h1>
+<div class="row new-entry extra-padding">
+    <%= link_to "Create Pet", "/shelters/#{params[:shelter_id]}/pets/new", class: "font-heavy" %>
+</div>
 <% @shelter_pets.each do |pet| %>
-    <figcaption><%= pet.name %></figcaption>
-    <img src="<%= pet.image %>" class="pet-image"></img>
-    <p>Approximate age: <%= pet.age %></p>
-    <p>Sex: <%= pet.sex %></p>
+    <div class="row pet-entry">
+        <div class="col-4"
+            <figcaption><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "font-heavy light-text" %></figcaption>
+            <img src="<%= pet.image %>" class="pet-image"></img>
+        </div>
+        <div class="col-8">
+            <p class="font-light light-text">Approximate age: <%= pet.age %></p>
+            <p class="font-light light-text">Sex: <%= pet.sex %></p>
+            <%= link_to "Update", "/pets/#{pet.id}/edit", class: "pet-update light-text" %><br>
+            <%= link_to "Delete", "/pets/#{pet.id}", method: :delete, class: "light-text" %>
+        </div>
+    </div>
 <% end %>

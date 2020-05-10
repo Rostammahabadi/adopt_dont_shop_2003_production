@@ -1,15 +1,29 @@
 <h2>Create Pet</h2>
 
-<%= form_tag "/shelters/#{@shelter_id}/pets", method: :post do %>
-    <%= label_tag :name %>
-    <%= text_field_tag :name %>
-    <%= label_tag :image %>
-    <%= text_field_tag :image %>
-    <%= label_tag :description %>
-    <%= text_field_tag :description %>
-    <%= label_tag "Approximate age" %>
-    <%= text_field_tag :age %>
-    <%= label_tag :sex %>
-    <%= text_field_tag :sex %>
-    <%= submit_tag "Create Pet" %>
-<% end %>
+<div class="input-form">
+    <%= form_tag "/shelters/#{@shelter_id}/pets", method: :post do %>
+        <div class="row form-entry">
+            <%= label_tag :name, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :name, nil, class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :image, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :image, nil, class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">    
+            <%= label_tag :description, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :description, nil, class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag "Approximate age", nil, class: "col-3 light-text" %>
+            <%= text_field_tag :age, nil, class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :sex, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :sex, nil, class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= submit_tag "Create Pet", class:"col-3" %>
+        </div>
+    <% end %>
+</div>

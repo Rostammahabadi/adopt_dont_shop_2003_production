@@ -14,8 +14,61 @@
  *= require_self
  */
 
- img {
+ .pet-image {
      float: left;
-     width: 20%;
-     margin: 0 auto;
+     width: 100%;
+     margin: 0px auto;
  }
+
+ .shelter-entry {
+     margin-bottom: 1px;
+     background-color: #353535;
+ }
+
+ .light-text{
+     color: whitesmoke;
+ }
+
+ nav {
+     background-color: #606060;
+ }
+
+ .nav-link {
+     color: whitesmoke;
+ }
+
+ .new-entry {
+     background-color: mediumaquamarine;
+ }
+
+ .pet-entry {
+     background-color: #353535;
+     margin-bottom: 1px;
+ }
+.shelter-update-top{
+    text-align: center;
+    padding: 15px 0;
+    background-color: mediumaquamarine;
+}
+
+.shelter-info {
+    background-color: #353535;
+    padding-top: 4px;
+}
+
+.extra-padding {
+    padding: 8px;
+}
+
+.form-entry {
+    background-color: #353535;
+}
+
+.input-form {
+    width: 90%;
+    align: center;
+    margin-left: 5%;
+}
+
+
+

@@ -1,14 +1,29 @@
 <h2>Update Shelter</h2>
-<%= form_tag "/shelters/#{@shelter.id}", method: :patch do %>
-    <%= label_tag :name %>
-    <%= text_field_tag :name, "#{@shelter.name}" %>
-    <%= label_tag :address %>
-    <%= text_field_tag :address, "#{@shelter.address}" %>
-    <%= label_tag :city %>
-    <%= text_field_tag :city, "#{@shelter.city}" %>
-    <%= label_tag :state %>
-    <%= text_field_tag :state, "#{@shelter.state}" %>
-    <%= label_tag :zip %>
-    <%= text_field_tag :zip, "#{@shelter.zip}" %>
-    <%= submit_tag "Update" %>
-<% end %>
+
+<div class="input-form">
+    <%= form_tag "/shelters/#{@shelter.id}", method: :patch do %>
+        <div class="row form-entry">
+            <%= label_tag :name, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :name, "#{@shelter.name}", class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :address, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :address, "#{@shelter.address}", class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :city, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :city, "#{@shelter.city}", class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :state, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :state, "#{@shelter.state}", class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :zip, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :zip, "#{@shelter.zip}", class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= submit_tag "Update", class:"col-3" %>
+        </div>
+    <% end %>
+</div>
