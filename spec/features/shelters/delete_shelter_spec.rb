@@ -10,7 +10,7 @@ RSpec.describe "When I visit the Shelter show page and click delete", type: :fea
         visit "/shelters"
         expect(page).to have_content("4 Paws Rescue")
         visit "/shelters/#{shelter_1.id}"
-        click_link "Delete"
+        click_link "Delete Shelter"
         
         expect(current_path).to eq("/shelters")
         expect(page).to_not have_content("4 Paws Rescue")
