@@ -16,3 +16,15 @@
     </div>
 </div>
 
+<div class="row shelter-ifo">
+  <div class ="col-6">
+    <% @reviews.each do |review| %>
+      <p class="light-text"><%= review.title %></p>
+      <p class="light-text"><%= review.rating %></p>
+      <p class="light-text"><%= review.content %></p>
+      <% if review.picture %>
+        <%= review.picture %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
