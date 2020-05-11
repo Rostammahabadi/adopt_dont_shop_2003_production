@@ -11,6 +11,7 @@ describe Shelter, type: :model do
 
     describe "relationships" do
         it {should have_many :pets}
+        it {should have_many :reviews}
     end
 
     describe "methods" do
@@ -38,7 +39,7 @@ describe Shelter, type: :model do
                                         adoption_status: "Pending")
 
             shelter_pets = shelter_1.adoptable_pets
-            
+
             expect(shelter_pets).to eq([pet_1])
         end
     end
