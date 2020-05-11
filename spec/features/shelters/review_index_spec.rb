@@ -18,8 +18,7 @@ RSpec.describe "See a list of reviews for specific shelter", type: :feature do
     review2 = shelter1.reviews.create(
       title: "Sweet",
       rating: 3,
-      content: "Cool place",
-      picture: "picture"
+      content: "Cool place"
     )
     visit "/shelters/#{shelter1.id}"
     expect(page).to have_content("Awesome")
@@ -30,7 +29,6 @@ RSpec.describe "See a list of reviews for specific shelter", type: :feature do
     expect(page).to have_content("Sweet")
     expect(page).to have_content(3)
     expect(page).to have_content("Cool place")
-    expect(page).to have_content("picture")
   end
 
 end
