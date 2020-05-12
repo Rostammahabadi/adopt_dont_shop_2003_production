@@ -3,19 +3,18 @@
 <div class="input-form">
     <%= form_tag "/shelters/#{@review.shelter_id}/reviews/#{@review.id}", method: :patch do %>
         <div class="row form-entry">
-            <%= label_tag :title, nil, class: "col-3 light-text" %>
-            <%= text_field_tag :title, "#{@review.title}", class: "col-8", required: true %>
-        </div>
-        <div class="row form-entry">
+            <%= label_tag :title, nil, class: "col-2 light-text" %>
+            <%= text_field_tag :title, "#{@review.title}", class: "col-5", required: true %>
+
             <%= label_tag :rating, nil, class: "col-3 light-text" %>
             <%= select_tag :rating, options_for_select([1, 2, 3, 4, 5],selected: @review.rating), required: true %>
         </div>
         <div class="row form-entry">
-            <%= label_tag :content, nil, class: "col-3 light-text" %>
+            <%= label_tag :content, nil, class: "col-2 light-text" %>
             <%= text_area_tag :content, "#{@review.content}", class: "col-8", required: true %>
         </div>
         <div class="row form-entry">
-            <%= label_tag :picture, nil, class: "col-3 light-text" %>
+            <%= label_tag :picture, nil, class: "col-2 light-text" %>
             <%= text_field_tag :picture, "#{@review.picture}", class: "col-8", required: false %>
         </div>
         <div class="row form-entry">
