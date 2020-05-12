@@ -17,6 +17,10 @@
         <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete, class: "font-heavy" %>
     </div>
 </div>
+<div class="row">
+  <h2 class="col-3">Reviews</h2>
+  <%= link_to "Write a Review", "/shelters/#{@shelter.id}/reviews/new", class: "col-3 font-heavy shelter-update-top" %>
+</div>
 <%#we will need to define new CSS for the reviews %>
 <div>
   <div>
