@@ -1,26 +1,24 @@
-<div class='row'>
-    <h2 class="col-3">New Review</h2>
-</div>
+<h2>Update Review</h2>
 
 <div class="input-form">
-    <%= form_tag "/shelters/#{@shelter_id}/reviews", method: :post do %>
+    <%= form_tag "/shelters/#{@review.shelter_id}/reviews/#{@review.id}", method: :patch do %>
         <div class="row form-entry">
             <%= label_tag :title, nil, class: "col-2 light-text" %>
-            <%= text_field_tag :title, nil, class: "col-5" %>
+            <%= text_field_tag :title, "#{@review.title}", class: "col-5"%>
 
             <%= label_tag :rating, nil, class: "col-3 light-text" %>
-            <%= select_tag :rating, options_for_select(['', 1, 2, 3, 4, 5]) %>
+            <%= select_tag :rating, options_for_select([1, 2, 3, 4, 5],selected: @review.rating) %>
         </div>
         <div class="row form-entry">
             <%= label_tag :content, nil, class: "col-2 light-text" %>
-            <%= text_area_tag :content, nil, class: "col-8" %>
+            <%= text_area_tag :content, "#{@review.content}", class: "col-8"%>
         </div>
         <div class="row form-entry">
             <%= label_tag :picture, nil, class: "col-2 light-text" %>
-            <%= text_field_tag :picture, nil, class: "col-8"%>
+            <%= text_field_tag :picture, "#{@review.picture}", class: "col-8", required: false %>
         </div>
         <div class="row form-entry">
-            <%= submit_tag "Submit", class:"col-3" %>
+            <%= submit_tag "Update", class:"col-3" %>
         </div>
     <% end %>
 </div>
