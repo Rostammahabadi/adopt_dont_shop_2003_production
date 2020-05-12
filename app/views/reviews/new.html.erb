@@ -6,14 +6,14 @@
     <%= form_tag "/shelters/#{@shelter_id}/reviews", method: :post do %>
         <div class="row form-entry">
             <%= label_tag :title, nil, class: "col-2 light-text" %>
-            <%= text_field_tag :title, nil, class: "col-5", required: true %>
+            <%= text_field_tag :title, nil, class: "col-5" %>
 
             <%= label_tag :rating, nil, class: "col-3 light-text" %>
-            <%= select_tag :rating, options_for_select([1, 2, 3, 4, 5]), required: true %>
+            <%= select_tag :rating, options_for_select(['', 1, 2, 3, 4, 5]) %>
         </div>
         <div class="row form-entry">
             <%= label_tag :content, nil, class: "col-2 light-text" %>
-            <%= text_field_tag :content, nil, class: "col-8", required: true %>
+            <%= text_area_tag :content, nil, class: "col-8" %>
         </div>
         <div class="row form-entry">
             <%= label_tag :picture, nil, class: "col-2 light-text" %>
