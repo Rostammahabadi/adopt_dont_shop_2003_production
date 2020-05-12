@@ -16,7 +16,11 @@
     </div>
 </div>
 
-<div class="row shelter-ifo">
+<div class="row">
+  <h2 class="col-3">Reviews</h2>
+  <%= link_to "Write a Review", "/shelters/#{@shelter.id}/reviews/new", class: "col-3 font-heavy shelter-update-top" %>
+</div>
+<div class="row shelter-info">
   <div class ="col-6">
     <% @reviews.each do |review| %>
       <p class="light-text"><%= review.title %></p>
