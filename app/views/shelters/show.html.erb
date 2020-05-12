@@ -24,10 +24,10 @@
 <%#we will need to define new CSS for the reviews %>
 <div class ="row shelter-info">
   <% @reviews.each do |review| %>
-  <div class="col-16">
+  <div class="col-6">
     <div class="row">
-      <p class="font-heavy light-text"><%= review.title %>
-      <%= link_to "Update", "/shelters/#{review.shelter_id}/reviews/#{review.id}/edit" , {:class => "font-heavy light-text", :style=>"margin: 0 auto;"}%></p>
+      <p class="font-heavy light-text col-4"><%= review.title %>
+      <%= link_to "Update", "/shelters/#{review.shelter_id}/reviews/#{review.id}/edit" , class: "col-1 font-heavy light-text"%></p>
     </div>
     <p class="light-text"><%= review.rating %></p>
     <p class="light-text"><%= review.content %></p>
@@ -35,5 +35,5 @@
       <p class="light-text"><%= review.picture %></p>
     <% end %>
   <% end %>
-    </div>
+  </div>
 </div>
