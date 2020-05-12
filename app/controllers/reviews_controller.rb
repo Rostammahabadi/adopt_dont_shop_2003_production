@@ -1,16 +1,17 @@
 class ReviewsController < ApplicationController
     def new
-
+        @shelter_id = params[:shelter_id]
     end
     
     def create
-        review = Review.create(review_params)
-        redirect_to "/shelters/:shelter_id"
+        shelter = Shelter.find(params[:shelter_id])
+        shelter.reviews.create!(*review_params)
+        redirect_to "/shelters/#{shelter.id}"
     end
 
     private
 
     def review_params
-        params.permit(:title, :rating, :content, :image)
+        params.permit(:title, :rating, :content, :picture)
     end
 end
