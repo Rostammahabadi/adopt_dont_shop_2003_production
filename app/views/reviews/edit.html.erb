@@ -12,7 +12,7 @@
         </div>
         <div class="row form-entry">
             <%= label_tag :content, nil, class: "col-3 light-text" %>
-            <%= text_field_tag :content, "#{@review.content}", class: "col-8", required: true %>
+            <%= text_area_tag :content, "#{@review.content}", class: "col-8", required: true %>
         </div>
         <div class="row form-entry">
             <%= label_tag :picture, nil, class: "col-3 light-text" %>
