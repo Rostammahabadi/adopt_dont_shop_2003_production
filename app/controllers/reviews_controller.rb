@@ -22,7 +22,7 @@ def new
       render "edit"
     end
     review.save
-    redirect_to "/shelters/#{review.shelter_id}", notice: "Need to enter title, rating, and review"
+    redirect_to "/shelters/#{review.shelter_id}", notice:"Need to enter title, rating, and review"
   end
 
   private
