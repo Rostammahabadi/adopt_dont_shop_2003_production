@@ -8,7 +8,7 @@
         </div>
         <div class="row form-entry">
             <%= label_tag :rating, nil, class: "col-3 light-text" %>
-            <%= text_field_tag :rating, "#{@review.rating}", class: "col-8", required: true %>
+            <%= select_tag :rating, options_for_select([1, 2, 3, 4, 5],selected: @review.rating), required: true %>
         </div>
         <div class="row form-entry">
             <%= label_tag :content, nil, class: "col-3 light-text" %>
