@@ -17,12 +17,11 @@ def new
   def update
     review = Review.find(params[:review_id])
     if review.update(review_params)
-      review.update(review_params)
+      redirect_to "/shelters/#{review.shelter_id}"
     else
-      render "edit"
+      flash[:notice] = "Need to enter title, rating, and review in order to update."
+      redirect_to "/shelters/#{review.shelter_id}/reviews/#{review.id}/edit"
     end
-    review.save
-    redirect_to "/shelters/#{review.shelter_id}", notice:"Need to enter title, rating, and review"
   end
 
   private
