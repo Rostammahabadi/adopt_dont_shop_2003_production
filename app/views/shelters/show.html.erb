@@ -1,3 +1,5 @@
+<div style="overflow:scroll;">
+
 <div class="row">
     <h2 class="col-6"><%= @shelter.name %></h2>
     <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit", class: "col-3 font-heavy shelter-update-top" %>
@@ -15,16 +17,24 @@
         <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete, class: "font-heavy" %>
     </div>
 </div>
-
-<div class="row shelter-ifo">
-  <div class ="col-6">
+<%#we will need to define new CSS for the reviews %>
+<div>
+  <div>
     <% @reviews.each do |review| %>
-      <p class="light-text"><%= review.title %></p>
-      <p class="light-text"><%= review.rating %></p>
-      <p class="light-text"><%= review.content %></p>
+    <div>
+      <p><%= review.title %>
+        <%= link_to "Update", "/shelters/#{review.shelter_id}/reviews/#{review.id}/edit" %></p>
+    </div>
+    <div>
+      <p><%= review.rating %></p>
+    </div>
+    <div>
+      <p><%= review.content %></p>
+    </div>
       <% if review.picture %>
-        <%= review.picture %>
+        <p><%= review.picture %></p>
       <% end %>
     <% end %>
   </div>
+</div>
 </div>
