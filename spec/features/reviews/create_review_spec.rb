@@ -39,7 +39,7 @@ RSpec.describe "New review page", type: :feature do
         click_button "Submit"
 
         expect(page).to have_content("Review not posted: You must fill in the Title, Rating, and Content in order to post a review.")
-        expect(current_path).to eq("/shelters/#{shelter_1.id}/reviews/new")
+        expect(page).to have_content("New Review")
         expect(page).to have_button("Submit")
     end
 end
