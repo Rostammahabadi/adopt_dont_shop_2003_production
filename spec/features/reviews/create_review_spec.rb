@@ -16,11 +16,11 @@ RSpec.describe "New review page", type: :feature do
         fill_in :title, with: "Great Shelter"
         select('5', from: :rating)
         fill_in :content, with: "Very clean place with happy pets."
-        # click_button "Create Pet"
 
-        # expect(current_path).to eq("/shelters/#{shelter_1.id}")
-        # expect(page).to have_content("Great Shelter")
-        # expect(page).to have_content("5")
-        # expect(page).to have_content("Very clean place with happy pets.")
+        click_button "Submit"
+        expect(current_path).to eq("/shelters/#{shelter_1.id}")
+        expect(page).to have_content("Great Shelter")
+        expect(page).to have_content("5")
+        expect(page).to have_content("Very clean place with happy pets.")
     end
 end
