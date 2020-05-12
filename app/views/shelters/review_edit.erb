@@ -1,0 +1,25 @@
+<h2>Update Review</h2>
+
+<div class="input-form">
+    <%= form_tag "/shelters/#{@shelter.id}/reviews/#{@review.id}", method: :patch do %>
+        <div class="row form-entry">
+            <%= label_tag :title, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :title, "#{@review.title}", class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :rating, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :rating, "#{@review.rating}", class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :content, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :content, "#{@review.content}", class: "col-8", required: true %>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :image, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :image, "#{@review.image}", class: "col-8", required: false %>
+        </div>
+        <div class="row form-entry">
+            <%= submit_tag "Update", class:"col-3" %>
+        </div>
+    <% end %>
+</div>
