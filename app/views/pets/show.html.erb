@@ -1,5 +1,6 @@
 <div class="row">
     <h2><%= @pet.name %></h2>
+    <%= link_to "Favorite", "/favorites/#{@pet.id}", method: :patch %>
 </div>
 <div class="row pet-entry">
     <div class="col-6">

@@ -103,10 +103,6 @@ p {
   width: 100%;
 }
 
-.rows {
-  float:left;
-}
-
 .row [class^="col"] {
   float: left;
   margin: 0.5rem 2%;

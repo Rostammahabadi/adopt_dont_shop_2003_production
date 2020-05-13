@@ -24,7 +24,7 @@ RSpec.describe "See a list of reviews for specific shelter", type: :feature do
     expect(page).to have_content("Awesome")
     expect(page).to have_content(4)
     expect(page).to have_content("This place was amazing, really cared for their animals")
-    expect(page).to have_content("url.url")
+    expect(page).to have_css("img[src*='url.url']")
 
     expect(page).to have_content("Sweet")
     expect(page).to have_content(3)
