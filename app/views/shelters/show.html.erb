@@ -26,12 +26,13 @@
 <% @reviews.each do |review| %>
   <div class="row shelter-info">
     <div class="row">
-      <h3 class="col-3 light-text"><%= review.title %></h3>
+      <h3 class="col-3 light-text">Title: <%= review.title %></h3>
       <%= link_to "Update", "/shelters/#{review.shelter_id}/reviews/#{review.id}/edit", class: "col-2 font-heavy light-text" %>
+      <%= link_to "Delete", "/shelters/#{review.shelter_id}/reviews/#{review.id}",method: :delete, class: "col-2 font-heavy light-text" %>
     </div>
     <div class="row">
-      <p class="col-6 light-text"><%= review.rating %><br>
-      <%= review.content %></p>
+      <p class="col-6 light-text">Rating: <%= review.rating %><br>
+      Content: <%= review.content %></p>
 
       <% if review.picture %>
         <img src="<%= review.picture %>" class="col-3"></img>
@@ -39,6 +40,3 @@
     </div>
   </div>
   <% end %>
-
-
-        

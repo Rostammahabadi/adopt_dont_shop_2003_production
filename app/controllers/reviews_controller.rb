@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
-  
+
   def new
-      @shelter_id = params[:shelter_id]
+    @shelter_id = params[:shelter_id]
   end
 
   def create
@@ -13,6 +13,11 @@ class ReviewsController < ApplicationController
           flash[:notice] = "Review not posted: You must fill in the Title, Rating, and Content in order to post a review."
           redirect_to "/shelters/#{shelter.id}/reviews/new"
       end
+  end
+
+  def destroy
+    Review.destroy(params[:review_id])
+    redirect_to "/shelters/#{params[:shelter_id]}"
   end
 
   def edit
