@@ -7,11 +7,4 @@ class ApplicationController < ActionController::Base
     @favorites ||= Favorites.new(session[:favorites])
   end
 
-  before_action :new
-
-  private
-
-  def shelter_id
-    @shelter_id = params[:shelter_id]
-  end
 end
