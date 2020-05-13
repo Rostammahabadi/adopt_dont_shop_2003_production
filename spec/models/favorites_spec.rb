@@ -24,4 +24,13 @@ RSpec.describe Favorites do
         expect(favorites.count_of(1)).to eq(1)
         expect(favorites.count_of(3)).to eq(0)
     end
+
+    it "can add a pet to favorites that has not yet been favorited" do
+        favorites = Favorites.new({})
+
+        favorites.add_pet(1)
+        favorites.add_pet(2)
+
+        expect(favorites.contents).to eq({'1' => 1, '2' => 1})
+    end
 end
