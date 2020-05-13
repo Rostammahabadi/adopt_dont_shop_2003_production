@@ -1,7 +1,6 @@
 class PetsController < ApplicationController
     def index
         @pets = Pet.all
-        @favorites = Favorites.new(session[:cart])
     end
 
     def shelter_pets
