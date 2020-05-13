@@ -49,7 +49,8 @@ RSpec.describe "When a user adds pets to their cart" do
                                     shelter_id: shelter_1.id,
                                     adoption_status: "Adoptable")
 
-        
+        visit "/shelters"
+        save_and_open_page
         expect(page).to have_content("Favorites: 0")
 
         visit "/pets/#{pet_1.id}"
