@@ -22,4 +22,14 @@ RSpec.describe Favorites do
 
         expect(favorites.contents).to eq([1, 2])
     end
+
+    it "can remove a pet from favorites" do
+        favorites = Favorites.new([1, 2, 3])
+
+        expect(favorites.contents).to eq([1, 2, 3])
+
+        favorites.remove_pet(2)
+
+        expect(favorites.contents).to eq([1, 3])
+    end
 end
