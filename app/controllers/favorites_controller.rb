@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
     end
 
     def index
-      @favorite_pets = favorites.contents.keys.flat_map do |favorite|
+      @favorite_pets = favorites.contents.uniq.flat_map do |favorite|
         Pet.where("#{favorite} = id")
       end
     end
