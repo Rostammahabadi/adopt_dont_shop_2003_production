@@ -13,7 +13,7 @@
     <nav class="row">
       <%= link_to "Pets", "/pets", class: "col-2 nav-link" %>
       <%= link_to "Shelters", "/shelters", class: "col-2 nav-link" %>
-      <%= link_to "Favorites #{favorites.total_count}", "/favorites", class:"col-2 nav-link"%>
+      <%= link_to "Favorites: #{favorites.total_count}", "/favorites", class:"col-2 nav-link"%>
     </nav>
     <% flash.each do |type, message| %>
       <p><%= message %></p>
