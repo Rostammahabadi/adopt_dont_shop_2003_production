@@ -28,7 +28,6 @@ class SheltersController < ApplicationController
     end
 
     def destroy
-      binding.pry
       Pet.where("#{params[:id]} = shelter_id").destroy_all
       Review.where("#{params[:id]} = shelter_id").destroy_all
       Shelter.destroy(params[:id])
