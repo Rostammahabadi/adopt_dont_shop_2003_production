@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
         favorites.remove_pet(pet.id)
         session[:favorites] = favorites.contents
         flash[:notice] = "#{pet.name} has been removed from favorites."
-        redirect_to("/pets/#{pet.id}")
+        redirect_to(request.referrer)
     end
 
     def index
