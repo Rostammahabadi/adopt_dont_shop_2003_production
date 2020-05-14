@@ -1,6 +1,6 @@
 <div class="row">
-    <h2><%= @pet.name %></h2>
-    <%= link_to "Favorite", "/favorites/#{@pet.id}", method: :patch %>
+    <h2 class="col-6"><%= @pet.name %></h2>
+    <%= link_to "Favorite", "/favorites/#{@pet.id}", method: :patch, class: "col-3 font-heavy shelter-update-top" %>
 </div>
 <div class="row pet-entry">
     <div class="col-6">
