@@ -32,4 +32,22 @@ RSpec.describe Favorites do
 
         expect(favorites.contents).to eq([1, 3])
     end
+
+    it "can update a pet that is not in favorites" do
+        favorites = Favorites.new([1, 2, 3])
+
+        favorites.update_pet(4)
+
+        expect(favorites.contents).to eq([1, 2, 3, 4])
+    end
+
+    it "can update a pet that is not in favorites" do
+        favorites = Favorites.new([1, 2, 3])
+
+        favorites.update_pet(3)
+        expect(favorites.contents).to eq([1, 2])
+
+        favorites.update_pet(1)
+        expect(favorites.contents).to eq([2])
+    end
 end
