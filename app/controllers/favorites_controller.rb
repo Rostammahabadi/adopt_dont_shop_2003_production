@@ -8,8 +8,12 @@ class FavoritesController < ApplicationController
     end
 
     def index
-      @favorite_pets = favorites.contents.uniq.flat_map do |favorite|
-        Pet.where("#{favorite} = id")
+      if favorites.contents.empty?
+        render :no_favorites
+      else
+        @favorite_pets = favorites.contents.uniq.flat_map do |favorite|
+          Pet.where("#{favorite} = id")
+        end
       end
     end
 end
