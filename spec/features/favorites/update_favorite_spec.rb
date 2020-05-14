@@ -88,7 +88,7 @@ RSpec.describe "When a user adds pets to their cart" do
         end
     end
 
-    it "decreases the favorites counter when Remove from Favorites is clicked" do
+    it "removes a pet from favorites" do
         shelter_1 = Shelter.create( name:    "4 Paws Rescue",
                                     address: "6567 W Long Dr.",
                                     city:    "Littleton",
@@ -126,6 +126,9 @@ RSpec.describe "When a user adds pets to their cart" do
 
         visit "/pets/#{pet_2.id}"
         click_on "Remove from Favorites"
+
+        expected = "#{pet_2.name} has been removed from favorites."
+        expect(page).to have_content(expected)
 
         within("nav") do
             expect(page).to have_content("Favorites: 1")

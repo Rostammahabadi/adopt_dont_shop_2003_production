@@ -1,6 +1,6 @@
 <div class="row pet-header">
     <h2 class="col-6"><%= @pet.name %></h2>
-    <%= link_to "#{@button_text}", "/favorites/#{@pet.id}", method: :patch, class: "col-4 font-heavy #{@button_class}" %>
+    <%= link_to "#{@button_text}", "/favorites/#{@pet.id}", method: @button_action, class: "col-4 font-heavy #{@button_class}" %>
 </div>
 
 <div class="row pet-entry">

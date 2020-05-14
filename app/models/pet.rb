@@ -17,4 +17,12 @@ class Pet < ApplicationRecord
             "shelter-update-top"
         end
     end
+
+    def favorite_action(favorites)
+        if favorites.include?(id)
+            :delete
+        else
+            :patch
+        end
+    end
 end
