@@ -8,12 +8,13 @@ class FavoritesController < ApplicationController
     end
 
     def index
-      if favorites.contents.empty?
-        render :no_favorites
-      else
-        @favorite_pets = favorites.contents.uniq.flat_map do |favorite|
-          Pet.where("#{favorite} = id")
-        end
+      @favorite_pets = favorites.contents.uniq.flat_map do |favorite|
+        Pet.where("#{favorite} = id")
       end
+    end
+
+    def destroy
+      favorites.contents.clear
+      redirect_to "/favorites"
     end
 end
