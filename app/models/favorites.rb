@@ -15,4 +15,8 @@ class Favorites
     def count_of(id)
         @contents[id.to_s].to_i
     end
+
+    def pets
+      @contents
+    end
 end
