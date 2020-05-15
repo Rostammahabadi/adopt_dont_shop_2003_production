@@ -25,22 +25,24 @@ RSpec.describe "Application show page", type: :feature do
                                 shelter_id: shelter_1.id,
                                 adoption_status: "Adoptable")
 
-    application1 = pet_1.applications.new({    
+    application1 = pet_1.applications.create({    
       name: "Hambone Fakenamington",
       address: "555 s. Sunset st.",
       city: "Los Angeles",
       state: "CA",
       zip: 55555,
+      phone_number: 3459999,
       description: "I want the pet"
     })
 
-    application2 = pet_2.applications.new({    
+    application2 = pet_2.applications.create({    
       name: "Coffee Maker",
       address: "554 s. Sunset st.",
-      city: "Los Angeles",
-      state: "CA",
-      zip: 55555,
-      description: "I want the pet as well"
+      city: "Albuquerque",
+      state: "NM",
+      zip: 50555,
+      phone_number: 3859999,
+      description: "I would like the pet as well."
     })
 
     visit("/applications/#{application1.id}")
