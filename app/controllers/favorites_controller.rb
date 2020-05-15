@@ -21,7 +21,7 @@ class FavoritesController < ApplicationController
       end
     end
 
-    def destroy
+    def destroy_all
       favorites.contents.clear
       redirect_to "/favorites"
     end
