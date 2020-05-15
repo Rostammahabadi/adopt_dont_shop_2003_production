@@ -10,6 +10,9 @@ class PetsController < ApplicationController
 
     def show
         @pet = Pet.find(params[:id])
+        @button_text = @pet.favorite_text(favorites.contents)
+        @button_class = @pet.favorite_class(favorites.contents)
+        @button_action = @pet.favorite_action(favorites.contents)
     end
 
     def new

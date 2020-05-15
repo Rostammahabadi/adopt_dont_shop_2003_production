@@ -3,8 +3,12 @@
 <% @favorite_pets.each do |pet| %>
     <div class="row pet-entry">
         <div class="col-4"
-            <figcaption><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "pet-#{pet.id} font-heavy light-text" %></figcaption>
+            <figcaption><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "pet-#{pet.id} font-heavy light-text col-2" %></figcaption>
             <img src="<%= pet.image %>" class="pet-image-<%= pet.id %> pet-image"></img>
+        </div>
+
+        <div class="col-8">
+            <%= link_to "Remove from Favorites", "/favorites/#{pet.id}", method: :delete, class: "col-4 font-heavy remove-favorite" %>
         </div>
     </div>
 
