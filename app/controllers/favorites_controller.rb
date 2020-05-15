@@ -20,4 +20,9 @@ class FavoritesController < ApplicationController
         Pet.where("#{favorite} = id")
       end
     end
+
+    def destroy_all
+      favorites.contents.clear
+      redirect_to "/favorites"
+    end
 end

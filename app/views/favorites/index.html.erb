@@ -1,5 +1,8 @@
 <h1 class="heading">Favorite Pets</h1>
-
+<%= link_to "Remove All Pets", "/favorites", method: :delete, class:"delete-favorites font-heavy"%>
+<% if @favorite_pets.empty? %>
+    <div><h2 class="font-heavy"> You have no favorited pets</h2></div>
+  <% else %>
 <% @favorite_pets.each do |pet| %>
     <div class="row pet-entry">
         <div class="col-4"
@@ -11,5 +14,5 @@
             <%= link_to "Remove from Favorites", "/favorites/#{pet.id}", method: :delete, class: "col-4 font-heavy remove-favorite" %>
         </div>
     </div>
-
+    <% end %>
 <% end %>
