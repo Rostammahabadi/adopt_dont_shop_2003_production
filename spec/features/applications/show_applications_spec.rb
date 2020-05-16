@@ -25,7 +25,7 @@ RSpec.describe "Application show page", type: :feature do
                                 shelter_id: shelter_1.id,
                                 adoption_status: "Adoptable")
 
-    application1 = pet_1.applications.create({    
+    application1 = Application.create({    
       name: "Hambone Fakenamington",
       address: "555 s. Sunset st.",
       city: "Los Angeles",
@@ -35,7 +35,7 @@ RSpec.describe "Application show page", type: :feature do
       description: "I want the pet"
     })
 
-    application2 = pet_2.applications.create({    
+    application2 = Application.create({    
       name: "Coffee Maker",
       address: "554 s. Sunset st.",
       city: "Albuquerque",
@@ -45,6 +45,10 @@ RSpec.describe "Application show page", type: :feature do
       description: "I would like the pet as well."
     })
 
+    PetApplication.create(pet_id: pet_1.id, application_id: application1.id)
+    PetApplication.create(pet_id: pet_2.id, application_id: application2.id)
+    PetApplication.create(pet_id: pet_2.id, application_id: application1.id)
+    
     visit("/applications/#{application1.id}")
 
     expect(page).to have_content("#{application1.name}")
@@ -53,13 +57,18 @@ RSpec.describe "Application show page", type: :feature do
     expect(page).to have_content("#{application1.state}")
     expect(page).to have_content("#{application1.zip}")
     expect(page).to have_content("#{application1.description}")
-
+    expect(page).to have_link("#{pet_1.name}")
+    expect(page).to have_link("#{pet_2.name}")
+    save_and_open_page
     expect(page).to_not have_content("#{application2.name}")
     expect(page).to_not have_content("#{application2.address}")
     expect(page).to_not have_content("#{application2.city}")
     expect(page).to_not have_content("#{application2.state}")
     expect(page).to_not have_content("#{application2.zip}")
     expect(page).to_not have_content("#{application2.description}")
+
+    click_link("#{pet_1.name}")
+    expect(current_path).to eq("/pets/#{pet_1.id}")
   end
 end
 
