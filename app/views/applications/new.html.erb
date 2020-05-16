@@ -5,7 +5,7 @@
     <%= form_tag "/applications", method: :post do %>
         <div class="row form-entry">
           <%= label_tag "Select Pet", nil, class: "col-3 light-text" %>
-          <%= select_tag "pet", options_for_select(@selected_favorites), multiple: :true, style:"margin-left:31px;margin-top:10px", class:""%>
+          <%= select_tag "pet_apps[]", options_for_select(@selected_favorites), multiple: :true, style:"margin-left:31px;margin-top:10px", class:""%>
         </div>
         <div class="row form-entry">
             <%= label_tag :name, nil, class: "col-3 light-text" %>
