@@ -1,5 +1,6 @@
 <h1 class="heading">Favorite Pets</h1>
 <%= link_to "Remove All Pets", "/favorites", method: :delete, class:"delete-favorites font-heavy"%>
+<%= link_to "New Application", "/applications/new", class:"new-app font-heavy", style:"margin-left:20px;" %>
 <% if @favorite_pets.empty? %>
     <div><h2 class="font-heavy"> You have no favorited pets</h2></div>
   <% else %>
@@ -23,5 +24,3 @@
         <%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "font-heavy" %>
     <% end %>
 </div>
-
-
