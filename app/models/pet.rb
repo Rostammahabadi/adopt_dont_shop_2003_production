@@ -1,6 +1,8 @@
 class Pet < ApplicationRecord
     validates_presence_of :name, :image, :description, :age, :sex, :adoption_status
     belongs_to :shelter
+    has_many :pet_applications
+    has_many :applications, through: :pet_applications
 
     def favorite_text(favorites)
         if favorites.include?(id)

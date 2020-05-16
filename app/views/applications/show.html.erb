@@ -1,0 +1,15 @@
+<div class="row shelter-info"
+  <div class="col-6">
+    <p class="light-text"><%= @application.name %></p>
+    <p class="light-text"><%= @application.address %></p>
+    <p class="light-text"><%= @application.city %></p>
+    <p class="light-text"><%= @application.state %></p>
+    <p class="light-text"><%= @application.zip %></p>
+    <p class="light-text"><%= @application.description %></p>
+    <p>Pets: 
+      <% @application.pets.each do |pet| %>
+        <%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "font-heavy light-text" %>
+      <% end %>
+    </p>
+  </div>
+</div>

@@ -12,6 +12,8 @@ describe Pet, type: :model do
 
     describe "relationships" do
         it {should belong_to :shelter}
+        it {should have_many :pet_applications}
+        it {should have_many(:applications).through((:pet_applications))}
     end
 
     it "creates an instance of Pet" do
@@ -100,5 +102,5 @@ describe Pet, type: :model do
         favorites.add_pet(pet_1.id)
 
         expect(pet_1.favorite_action(favorites.contents)).to eq(:delete)
-    end
+    end 
 end

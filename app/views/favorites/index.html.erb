@@ -6,7 +6,7 @@
 <% @favorite_pets.each do |pet| %>
     <div class="row pet-entry">
         <div class="col-4"
-            <figcaption><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "pet-#{pet.id} font-heavy light-text col-2" %></figcaption>
+            <figcaption><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "pet-#{pet.id} font-heavy light-text" %></figcaption>
             <img src="<%= pet.image %>" class="pet-image-<%= pet.id %> pet-image"></img>
         </div>
 
@@ -16,3 +16,12 @@
     </div>
     <% end %>
 <% end %>
+
+<div class = 'pets-with-apps'>
+    <h2>Pets with Applications</h2>
+    <% Application.all_pets.each do |pet| %>
+        <%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "font-heavy" %>
+    <% end %>
+</div>
+
+

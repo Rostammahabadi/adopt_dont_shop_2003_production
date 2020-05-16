@@ -1,20 +1,6 @@
-require "rails_helper"
-
-RSpec.describe Application, type: :model do
-  describe "relationships" do
-    it { should have_many :pets}
-    it { should have_many(:pets).through(:pet_applications)}
-  end
-  describe "validations" do
-    it {should validate_presence_of :name}
-    it {should validate_presence_of :address}
-    it {should validate_presence_of :city}
-    it {should validate_presence_of :state}
-    it {should validate_presence_of :zip}
-    it {should validate_presence_of :description}
-  end
-
-  it "can get all pets with applications" do
+require 'rails_helper'
+RSpec.describe "Favorites index page", type: :feature do
+  it "shows pets with applications on the favorites page" do
     shelter_1 = Shelter.create( name:    "4 Paws Rescue",
                                 address: "6567 W Long Dr.",
                                 city:    "Littleton",
@@ -60,8 +46,21 @@ RSpec.describe Application, type: :model do
 
     PetApplication.create(pet_id: pet_1.id, application_id: application1.id)
     PetApplication.create(pet_id: pet_1.id, application_id: application2.id)
+
+    visit("/favorites")
+
+    within(".pets-with-apps") do
+      expect(page).to have_link("#{pet_1.name}")
+      expect(page).to_not have_link("#{pet_2.name}")
+    end
+
     PetApplication.create(pet_id: pet_2.id, application_id: application1.id)
 
-    expect(Application.all_pets).to eq([pet_1, pet_2])
+    visit("/favorites")
+    
+    within(".pets-with-apps") do
+      expect(page).to have_link("#{pet_1.name}")
+      expect(page).to have_link("#{pet_2.name}")
+    end
   end
 end
