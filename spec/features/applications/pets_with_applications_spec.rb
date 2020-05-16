@@ -1,7 +1,6 @@
 require 'rails_helper'
-
-RSpec.describe "Application show page", type: :feature do
-  it "shows the name, address, city, state, zip, phone number and description of the application" do
+RSpec.describe "Favorites index page", type: :feature do
+  it "shows pets with applications on the favorites page" do
     shelter_1 = Shelter.create( name:    "4 Paws Rescue",
                                 address: "6567 W Long Dr.",
                                 city:    "Littleton",
@@ -46,28 +45,20 @@ RSpec.describe "Application show page", type: :feature do
     })
 
     PetApplication.create(pet_id: pet_1.id, application_id: application1.id)
-    PetApplication.create(pet_id: pet_2.id, application_id: application2.id)
+    PetApplication.create(pet_id: pet_1.id, application_id: application2.id)
+
+    visit("/favorites")
+
+    within(".pets-with-apps") do
+      expect(page).to have_link("#{pet_1.name}")
+      expect(page).to_not have_link("#{pet_2.name}")
+    end
+
     PetApplication.create(pet_id: pet_2.id, application_id: application1.id)
-    
-    visit("/applications/#{application1.id}")
 
-    expect(page).to have_content("#{application1.name}")
-    expect(page).to have_content("#{application1.address}")
-    expect(page).to have_content("#{application1.city}")
-    expect(page).to have_content("#{application1.state}")
-    expect(page).to have_content("#{application1.zip}")
-    expect(page).to have_content("#{application1.description}")
-    expect(page).to have_link("#{pet_1.name}")
-    expect(page).to have_link("#{pet_2.name}")
-    save_and_open_page
-    expect(page).to_not have_content("#{application2.name}")
-    expect(page).to_not have_content("#{application2.address}")
-    expect(page).to_not have_content("#{application2.city}")
-    expect(page).to_not have_content("#{application2.state}")
-    expect(page).to_not have_content("#{application2.zip}")
-    expect(page).to_not have_content("#{application2.description}")
-
-    click_link("#{pet_1.name}")
-    expect(current_path).to eq("/pets/#{pet_1.id}")
+    within(".pets-with-apps") do
+      expect(page).to have_link("#{pet_1.name}")
+      expect(page).to have_link("#{pet_2.name}")
+    end
   end
 end
