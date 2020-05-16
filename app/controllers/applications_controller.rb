@@ -11,6 +11,7 @@ class ApplicationsController < ApplicationController
     new_app = Application.new(application_params)
     if new_app.save
       pet = Pet.find_by(name:"#{params[:pet]}")
+      PetApplication.create(pet_id: pet.id,application_id: new_app.id)
       favorites.contents.delete(pet.id)
       redirect_to "/favorites"
       flash[:notice] = "Your application for #{params[:pet]} has been submitted."
