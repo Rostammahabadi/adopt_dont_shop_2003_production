@@ -102,5 +102,5 @@ describe Pet, type: :model do
         favorites.add_pet(pet_1.id)
 
         expect(pet_1.favorite_action(favorites.contents)).to eq(:delete)
-    end
+    end 
 end

@@ -8,7 +8,6 @@ RSpec.describe "Application show page", type: :feature do
                                 state:   "CO",
                                 zip:     "80123")
 
-
     pet_1 = Pet.create( name:    "Teddy",
                                 image: "https://i.pinimg.com/originals/47/4e/7d/474e7d2479512428a1a4716d5d1656eb.jpg",
                                 age:    "10",
@@ -59,7 +58,7 @@ RSpec.describe "Application show page", type: :feature do
     expect(page).to have_content("#{application1.description}")
     expect(page).to have_link("#{pet_1.name}")
     expect(page).to have_link("#{pet_2.name}")
-    save_and_open_page
+    
     expect(page).to_not have_content("#{application2.name}")
     expect(page).to_not have_content("#{application2.address}")
     expect(page).to_not have_content("#{application2.city}")

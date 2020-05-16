@@ -16,3 +16,12 @@
     </div>
     <% end %>
 <% end %>
+
+<div class = 'pets-with-apps'>
+    <h2>Pets with Applications</h2>
+    <% Application.all_pets.each do |pet| %>
+        <%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "font-heavy" %>
+    <% end %>
+</div>
+
+
