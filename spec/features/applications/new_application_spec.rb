@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "User can click delete all favorited pets" do
-    it "will delete all favorited pets and redirect to the index page" do
+RSpec.describe "User can crate new application" do
+    it "will take user to application page where they can fill out information" do
       shelter_1 = Shelter.create( name:    "4 Paws Rescue",
                                   address: "6567 W Long Dr.",
                                   city:    "Littleton",
@@ -32,20 +32,22 @@ RSpec.describe "User can click delete all favorited pets" do
       visit("/favorites")
       has_link?("New Application")
       click_link("New Application")
-      select_from_chosen("#{pet_1.name}", from: 'selection')
-      fill_in :name, with: "Teddy"
+      select("#{pet_1.name}")
+      fill_in :name, with: "Alex"
       fill_in :address, with: "123 West 3rd St"
       fill_in :city, with: "Sterling"
       fill_in :state, with: "Virginia"
       fill_in :zip, with: 85257
       fill_in :phone_number, with: "7034630729"
       fill_in :description, with: "Id be a great fit because I like dogs"
-      click_button("submit")
-      expect(page).to have_content("Your application for #{pet_1.name} has been submitted.")
+      click_on("Submit")
       expect(current_path).to eq("/favorites")
-      expect(page).to_not have_content("Teddy")
-      expect(page).to_not have_content("A sweet dog looking for a loving home")
-      expect(page).to_not have_content(10)
+      expect(page).to have_content("Your application for #{pet_1.name} has been submitted.")
+      within(".pet-entry") do
+        expect(page).to_not have_content("Teddy")
+        expect(page).to_not have_content("A sweet dog looking for a loving home")
+        expect(page).to_not have_content(10)
+      end
 
     end
 
