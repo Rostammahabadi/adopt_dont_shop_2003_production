@@ -1,5 +1,6 @@
 <div class="row pet-header">
     <h2 class="col-6"><%= @pet.name %></h2>
+    <%= link_to "All Applications", "/pets/#{@pet.id}/applications" %>
     <%= link_to "#{@button_text}", "/favorites/#{@pet.id}", method: @button_action, class: "col-4 font-heavy #{@button_class}" %>
 </div>
 
@@ -16,4 +17,3 @@
         <p><%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete, class: "font-heavy light-text" %></p>
     </div>
 </div>
-
