@@ -18,11 +18,15 @@ class PetApplication < ApplicationRecord
     end
   end
 
-  def update_approval
-    if approved
-      approved = false
+  def new_approval_value
+    !approved
+  end
+
+  def new_adoption_status
+    if pet.adoption_status == "Adoptable"
+      "Pending"
     else
-      approved = true
+      "Adoptable"
     end
   end
 end
