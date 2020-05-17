@@ -27,12 +27,4 @@ class Pet < ApplicationRecord
             :patch
         end
     end
-
-    def application_link_text
-        if adoption_status == "Adoptable"
-            "Approve"
-        else
-            "Unapprove"
-        end
-    end
 end
