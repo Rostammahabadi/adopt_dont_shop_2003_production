@@ -6,11 +6,15 @@
     <p class="light-text"><%= @application.state %></p>
     <p class="light-text"><%= @application.zip %></p>
     <p class="light-text"><%= @application.description %></p>
-    <p>Pets: 
+    <p class="light-text">Pets: 
       <% @application.pet_applications.each do |pet_application| %>
         <div class="pet-app-<%= pet_application.id %>">
           <%= link_to "#{pet_application.pet.name}", "/pets/#{pet_application.pet.id}", class: "col-2 font-heavy light-text" %>
-          <%= link_to "#{pet_application.link_text}", "/pet_applications/#{pet_application.id}", method: :patch, class: "col-4 font-heavy #{pet_application.link_class}" %>
+          <% if pet_application.pet.adoption_status == "Pending" && pet_application.approved == false %>
+            <p class="col-4 remove-favorite">Pending adoption by another applicant</p>
+          <% else %>
+            <%= link_to "#{pet_application.link_text}", "/pet_applications/#{pet_application.id}", method: :patch, class: "col-4 font-heavy #{pet_application.link_class}" %>
+          <% end %>
         </div>
       <% end %>
     </p>
