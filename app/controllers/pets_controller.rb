@@ -13,6 +13,7 @@ class PetsController < ApplicationController
         @button_text = @pet.favorite_text(favorites.contents)
         @button_class = @pet.favorite_class(favorites.contents)
         @button_action = @pet.favorite_action(favorites.contents)
+        @approved_application = PetApplication.find_by(pet_id: @pet.id, approved: true)
     end
 
     def new
