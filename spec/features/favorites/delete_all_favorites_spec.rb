@@ -22,7 +22,7 @@ RSpec.describe "User can click delete all favorited pets" do
                                   sex:   "M",
                                   description: "Loves to dance for some reason.",
                                   shelter_id: shelter_1.id,
-                                  adoption_status: "Pending")
+                                  adoption_status: "Adoptable")
       visit("/pets/#{pet_1.id}")
       click_on "Favorite"
       visit("/pets/#{pet_2.id}")
