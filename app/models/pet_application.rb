@@ -29,4 +29,20 @@ class PetApplication < ApplicationRecord
       "Adoptable"
     end
   end
+
+  def redirect_path_start
+    if approved
+      "applications"
+    else
+      "pets"
+    end
+  end
+
+  def redirect_path_end
+    if approved
+      application.id
+    else
+      pet.id
+    end
+  end
 end
