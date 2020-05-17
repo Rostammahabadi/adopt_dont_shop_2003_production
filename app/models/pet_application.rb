@@ -17,4 +17,12 @@ class PetApplication < ApplicationRecord
       "shelter-update-top"
     end
   end
+
+  def update_approval
+    if approved
+      approved = false
+    else
+      approved = true
+    end
+  end
 end
