@@ -61,6 +61,11 @@ RSpec.describe "Approval of Applications", type: :feature do
 
     visit("/applications/#{application1.id}")
     within(".pet-app-#{pet_app3.id}") do
+      expect(page).to have_link("Approve")
+      expect(page).to_not have_link("Unapprove")
+    end
+
+    within(".pet-app-#{pet_app1.id}") do
       expect(page).to_not have_link("Approve")
       expect(page).to have_link("Unapprove")
     end

@@ -5,15 +5,13 @@ class PetApplicationsController < ApplicationController
 
   def update
     @pet_application = PetApplication.find(params[:pet_application_id])
-    @pet = @pet_application.pet
-    if @pet_application.approved
-      @pet_application.update(:approved => false)
-      @pet.update(:adoption_status => "Adoptable")
-    else
-      @pet_application.update(:approved => true)
-      @pet.update(:adoption_status => "Pending")
-    end
-    redirect_to "/pets/#{@pet.id}"
+    path_start = @pet_application.redirect_path_start
+    path_end = @pet_application.redirect_path_end
+    approval_status = @pet_application.new_approval_value
+    adoption_status = @pet_application.new_adoption_status
+    @pet_application.update(:approved => approval_status)
+    @pet_application.pet.update(:adoption_status => adoption_status)
+    redirect_to "/#{path_start}/#{path_end}"
   end
 
   private

@@ -13,6 +13,9 @@
         <p class="light-text">Approximate Age: <%= @pet.age %></p>
         <p class="light-text">Sex: <%= @pet.sex %></p>
         <p class="light-text">Adoption status: <%= @pet.adoption_status %></p>
+        <% if @pet.adoption_status == "Pending" %>
+            <p class="light-text">On hold for <%= @approved_application.application.name %></p>
+        <% end %>
         <p><%= link_to "Update Pet", "/pets/#{@pet.id}/edit", class: "font-heavy light-text" %></p>
         <p><%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete, class: "font-heavy light-text" %></p>
     </div>

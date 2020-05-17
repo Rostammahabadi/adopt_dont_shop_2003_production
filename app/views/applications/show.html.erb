@@ -10,7 +10,7 @@
       <% @application.pet_applications.each do |pet_application| %>
         <div class="pet-app-<%= pet_application.id %>">
           <%= link_to "#{pet_application.pet.name}", "/pets/#{pet_application.pet.id}", class: "col-2 font-heavy light-text" %>
-          <%= link_to "#{pet_application.link_text}", "/pet_applications/#{pet_application.id}",method: :patch, class: "col-4 font-heavy #{pet_application.link_class}" %>
+          <%= link_to "#{pet_application.link_text}", "/pet_applications/#{pet_application.id}", method: :patch, class: "col-4 font-heavy #{pet_application.link_class}" %>
         </div>
       <% end %>
     </p>
