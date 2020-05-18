@@ -68,5 +68,34 @@ describe Shelter, type: :model do
 
 			expect(shelter_1.number_of_pets).to eq(2)
         end
+
+        it "can get average review rating" do
+            shelter1 = Shelter.create( name:    "4 Paws Rescue",
+                                        address: "6567 W Long Dr.",
+                                        city:    "Littleton",
+                                        state:   "CO",
+                                        zip:     "80123")
+
+            review1 = shelter1.reviews.create(
+                    title: "Awesome",
+                    rating: 4,
+                    content: "This place was amazing, really cared for their animals",
+                    picture: "url.url")
+
+            review2 = shelter1.reviews.create(
+                        title: "Sweet",
+                        rating: 3,
+                        content: "Cool place")
+
+            expect(shelter1.average_rating).to eq(3.5)
+
+            review2 = shelter1.reviews.create(
+                        title: "Sweet",
+                        rating: 3,
+                        content: "Cool place")
+
+            expected = (10.to_f / 3.to_f)
+            expect(shelter1.average_rating).to eq(expected)
+        end
     end
 end
