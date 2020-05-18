@@ -14,4 +14,9 @@ class Shelter < ApplicationRecord
     def average_rating
         reviews.average(:rating).to_f
     end
+
+    def total_applications
+        applications = pets.flat_map {|pet| pet.applications }
+        applications.uniq.length
+    end
 end
