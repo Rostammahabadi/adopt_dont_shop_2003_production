@@ -30,5 +30,4 @@ RSpec.describe "See a list of reviews for specific shelter", type: :feature do
     expect(page).to have_content(3)
     expect(page).to have_content("Cool place")
   end
-
 end
