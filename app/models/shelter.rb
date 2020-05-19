@@ -7,4 +7,17 @@ class Shelter < ApplicationRecord
         pets.where(adoption_status: "Adoptable")
     end
 
+    def number_of_pets
+        pets.length
+    end
+
+    def average_rating
+        return "N/A" if reviews == []
+        reviews.average(:rating).to_f
+    end
+
+    def total_applications
+        applications = pets.flat_map {|pet| pet.applications }
+        applications.uniq.length
+    end
 end
