@@ -40,8 +40,8 @@ class SheltersController < ApplicationController
 
     def destroy
       if approved_or_pending == false
+        delete_pets_from_favorites
         delete_pets_for_shelter
-        delete_pet_applications_for_shelter
         Review.where("? = shelter_id", params[:id]).destroy_all
         Shelter.destroy(params[:id])
         redirect_to "/shelters"
@@ -53,8 +53,10 @@ class SheltersController < ApplicationController
 
     private
 
-    def delete_pet_applications_for_shelter
-        PetApplication.where("? = pet_id", params[:id]).destroy_all
+    def delete_pets_from_favorites
+      Pet.where("? = shelter_id", params[:id]).each do |pet|
+        favorites.contents.delete(pet.id)
+      end
     end
 
     def delete_pets_for_shelter
