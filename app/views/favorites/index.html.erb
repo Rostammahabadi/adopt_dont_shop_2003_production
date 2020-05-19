@@ -12,7 +12,7 @@
         </div>
 
         <div class="col-8">
-            <%= link_to "Remove from Favorites", "/favorites/#{pet.id}", method: :delete, class: "col-4 font-heavy remove-favorite" %>
+            <%= link_to "Remove from Favorites", "/favorites/#{pet.id}", method: :patch, class: "col-4 font-heavy remove-favorite" %>
         </div>
     </div>
     <% end %>
