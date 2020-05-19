@@ -52,7 +52,9 @@ RSpec.describe "Favorites index page", type: :feature do
     within(".pets-with-apps") do
       expect(page).to have_link("#{pet_1.name}")
       expect(page).to_not have_link("#{pet_2.name}")
+      click_link("#{pet_1.name}")
     end
+    expect(current_path).to eq("/pets/#{pet_1.id}")
 
     PetApplication.create(pet_id: pet_2.id, application_id: application1.id)
 

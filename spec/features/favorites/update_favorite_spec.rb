@@ -19,10 +19,11 @@ RSpec.describe "When a user adds pets to their cart" do
 
 
         visit "/pets/#{pet_1.id}"
+        has_link?("Favorite")
         click_on "Favorite"
 
-        expect(page).to have_content("#{pet_1.name} has been added to favorites.")
         expect(current_path).to eq("/pets/#{pet_1.id}")
+        expect(page).to have_content("#{pet_1.name} has been added to favorites.")
     end
 
     it "displays the total number of favorited pets" do
@@ -50,20 +51,27 @@ RSpec.describe "When a user adds pets to their cart" do
                                     adoption_status: "Adoptable")
 
         visit "/shelters"
-        expect(page).to have_content("Favorites: 0")
+
+        within("nav") do
+            expect(page).to have_content("Favorites: 0")
+        end
 
         visit "/pets/#{pet_1.id}"
         click_on "Favorite"
 
-        expect(page).to have_content("Favorites: 1")
+        within("nav") do
+            expect(page).to have_content("Favorites: 1")
+        end
 
         visit "/pets/#{pet_2.id}"
         click_on "Favorite"
 
-        expect(page).to have_content("Favorites: 2")
+        within("nav") do
+            expect(page).to have_content("Favorites: 2")
+        end    
     end
 
-    it "changes link to 'remove from pets' after pet has been favorited" do
+    it "changes link to 'remove from favorites' after pet has been favorited" do
         shelter_1 = Shelter.create( name:    "4 Paws Rescue",
                                     address: "6567 W Long Dr.",
                                     city:    "Littleton",
@@ -125,8 +133,13 @@ RSpec.describe "When a user adds pets to their cart" do
         end
 
         visit "/pets/#{pet_2.id}"
+        within(".pet-header") do
+            expect(page).to_not have_css(".add-favorite")
+            expect(page).to have_link("Remove from Favorites")
+        end
         click_on "Remove from Favorites"
 
+        expect(current_path).to eq("/pets/#{pet_2.id}")
         expected = "#{pet_2.name} has been removed from favorites."
         expect(page).to have_content(expected)
 

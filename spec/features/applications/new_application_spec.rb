@@ -32,21 +32,34 @@ RSpec.describe "User can crate new application" do
       visit("/favorites")
       has_link?("New Application")
       click_link("New Application")
+      expect(current_path).to eq("/applications/new")
+
       select("#{pet_1.name}")
+      has_field?(:name)
       fill_in :name, with: "Alex"
+      has_field?(:address)
       fill_in :address, with: "123 West 3rd St"
+      has_field?(:city)
       fill_in :city, with: "Sterling"
+      has_field?(:state)
       fill_in :state, with: "Virginia"
+      has_field?(:zip)
       fill_in :zip, with: 85257
+      has_field?(:phone_number)
       fill_in :phone_number, with: "7034630729"
+      has_field?(:description)
       fill_in :description, with: "Id be a great fit because I like dogs"
       click_on("Submit")
+
       expect(current_path).to eq("/favorites")
       expect(page).to have_content("Your application has been submitted.")
       within(".pet-entry") do
         expect(page).to_not have_content("Teddy")
         expect(page).to_not have_content("A sweet dog looking for a loving home")
         expect(page).to_not have_content(10)
+
+        expect(page).to have_content("#{pet_2.name}")
+        expect(page).to have_css("img[src='https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/01/a0001799/img/basic/a0001799_main.jpg?20191118104245&q=80&rw=750&rh=536']")
       end
     end
     it "will show warning message when field are entered" do

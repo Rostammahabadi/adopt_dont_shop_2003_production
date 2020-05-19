@@ -55,6 +55,7 @@ RSpec.describe "Application show page", type: :feature do
     expect(page).to have_content("#{application1.city}")
     expect(page).to have_content("#{application1.state}")
     expect(page).to have_content("#{application1.zip}")
+    expect(page).to have_content("#{application1.phone_number}")
     expect(page).to have_content("#{application1.description}")
     expect(page).to have_link("#{pet_1.name}")
     expect(page).to have_link("#{pet_2.name}")

@@ -1,7 +1,11 @@
 <div class="row pet-header">
     <h2 class="col-6"><%= @pet.name %></h2>
     <%= link_to "All Applications", "/pets/#{@pet.id}/applications" %>
-    <%= link_to "#{@button_text}", "/favorites/#{@pet.id}", method: @button_action, class: "col-4 font-heavy #{@button_class}" %>
+    <% if favorites.contents.include?(@pet.id) %>
+        <%= link_to "Remove from Favorites", "/favorites/#{@pet.id}", method: :patch, class: " col-4 font-heavy remove-favorite" %>
+    <% else %>
+        <%= link_to "Favorite", "/favorites/#{@pet.id}", method: :patch, class: "add-favorite col-4 font-heavy shelter-update-top" %>
+    <% end %>
 </div>
 
 <div class="row pet-entry">
