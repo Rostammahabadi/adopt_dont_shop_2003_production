@@ -45,6 +45,7 @@ class PetsController < ApplicationController
         else
             pet.pet_applications.each {|pet_app| PetApplication.destroy(pet_app.id) }
             Pet.destroy(pet.id)
+            favorites.remove_pet(pet.id)
             redirect_to "/pets"
         end
     end
