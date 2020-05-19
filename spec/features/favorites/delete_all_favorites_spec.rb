@@ -29,5 +29,8 @@ RSpec.describe "User can click delete all favorited pets" do
       click_on "Favorite"
       visit("/favorites")
       click_on("Remove All Pets")
+      expect(current_path).to eq("/favorites")
+      expect(page).to have_content("You have no favorited pets")
+      expect(page).to have_content("Favorites: 0")
     end
 end

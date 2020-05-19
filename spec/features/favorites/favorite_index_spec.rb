@@ -98,9 +98,11 @@ RSpec.describe "User can see all favorited pets on favorite index page" do
       click_on "Favorite"
 
       visit("/favorites")
+      expect(page).to have_content("Favorites: 1")
 
       click_link("Remove from Favorites")
       expect(page).to have_content("#{pet_1.name} has been removed from favorites.")
+      expect(page).to have_content("Favorites: 0")
 
       expect(page).to_not have_css(".pet-#{pet_1.id}")
       expect(current_path).to eq("/favorites")

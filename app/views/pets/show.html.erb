@@ -2,9 +2,9 @@
     <h2 class="col-6"><%= @pet.name %></h2>
     <%= link_to "All Applications", "/pets/#{@pet.id}/applications" %>
     <% if favorites.contents.include?(@pet.id) %>
-        <%= link_to "Remove from Favorites", "/favorites/#{@pet.id}", method: :patch, class: "col-4 font-heavy remove-favorite" %>
+        <%= link_to "Remove from Favorites", "/favorites/#{@pet.id}", method: :patch, class: " col-4 font-heavy remove-favorite" %>
     <% else %>
-        <%= link_to "Favorite", "/favorites/#{@pet.id}", method: :patch, class: "col-4 font-heavy shelter-update-top" %>
+        <%= link_to "Favorite", "/favorites/#{@pet.id}", method: :patch, class: "add-favorite col-4 font-heavy shelter-update-top" %>
     <% end %>
 </div>
 
