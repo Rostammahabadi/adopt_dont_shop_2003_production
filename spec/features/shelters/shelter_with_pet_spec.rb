@@ -107,7 +107,7 @@ RSpec.describe "When I visit the Shelter show page and click delete while they h
     expect(current_path).to eq("/shelters/#{shelter_1.id}")
   end
 
-  xit "Will delete a shelter with pets that have not been approved" do
+  it "Will delete a shelter with pets that have not been approved" do
     shelter_1 = Shelter.create( name:    "4 Paws Rescue",
                                 address: "6567 W Long Dr.",
                                 city:    "Littleton",
@@ -156,7 +156,6 @@ RSpec.describe "When I visit the Shelter show page and click delete while they h
 
     visit("/shelters/#{shelter_1.id}")
     click_on("Delete Shelter")
-    save_and_open_page
     expect(current_path).to eq("/shelters")
   end
 end
