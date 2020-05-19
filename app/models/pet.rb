@@ -1,7 +1,7 @@
 class Pet < ApplicationRecord
     validates_presence_of :name, :image, :description, :age, :sex
     belongs_to :shelter
-    has_many :pet_applications
+    has_many :pet_applications, dependent: :destroy
     has_many :applications, through: :pet_applications
 
     before_save :default_values
