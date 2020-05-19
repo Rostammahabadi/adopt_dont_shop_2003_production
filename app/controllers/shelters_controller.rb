@@ -54,14 +54,11 @@ class SheltersController < ApplicationController
     private
 
     def delete_pet_applications_for_shelter
-      delete_pets_for_shelter.each do |pet|
         PetApplication.where("? = pet_id", params[:id]).destroy_all
-        Pet.destroy(pet.id)
-      end
     end
 
     def delete_pets_for_shelter
-      Pet.where("? = shelter_id", params[:id])
+      Pet.where("? = shelter_id", params[:id]).destroy_all
     end
 
     def approved_or_pending
