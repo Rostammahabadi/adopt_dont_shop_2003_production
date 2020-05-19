@@ -23,9 +23,11 @@ RSpec.describe "Delete review page", type: :feature do
         picture: "url"
       )
     visit("/shelters/#{shelter_1.id}")
-    has_link?("Delete")
-    page.all(:link, "Delete")[1].click
-
+    within(".review-#{review1.id}") do
+      has_link?("Delete")
+      click_link("Delete")
+    end
+    
     expect(current_path).to eq("/shelters/#{shelter_1.id}")
     expect(page).to_not have_content("Awesome")
     expect(page).to_not have_content("Rating: #{4}")
