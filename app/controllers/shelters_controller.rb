@@ -40,8 +40,8 @@ class SheltersController < ApplicationController
 
     def destroy
       if approved_or_pending == false
-        delete_pet_applications_for_shelter
         delete_pets_for_shelter
+        delete_pet_applications_for_shelter
         Review.where("? = shelter_id", params[:id]).destroy_all
         Shelter.destroy(params[:id])
         redirect_to "/shelters"
@@ -64,8 +64,8 @@ class SheltersController < ApplicationController
     def approved_or_pending
       status = false
       Shelter.find("#{params[:id]} = id").pets.each do |pet|
-        return true if PetApplication.where("? = pet_id AND approved = ?", pet.id, true).empty?
-        return true if Pet.where("id = ? AND adoption_status = ?", pet.id, "Pending").empty?
+        return true if PetApplication.where("? = pet_id AND approved = ?", pet.id, true).empty? == false
+        return true if Pet.where("id = ? AND adoption_status = ?", pet.id, "Pending").empty? == false
       end
       status
     end

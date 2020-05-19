@@ -137,5 +137,8 @@ RSpec.describe "When I visit the pet show page and click delete", type: :feature
         within("nav") do
             expect(page).to have_content("Favorites: 0")
         end
+
+        visit("/favorites")
+        expect(page).to have_content("You have no favorited pets")
     end
 end
