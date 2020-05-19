@@ -12,6 +12,7 @@ class Shelter < ApplicationRecord
     end
 
     def average_rating
+        return "N/A" if reviews == []
         reviews.average(:rating).to_f
     end
 

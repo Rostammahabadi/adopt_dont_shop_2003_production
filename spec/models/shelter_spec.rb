@@ -76,6 +76,12 @@ describe Shelter, type: :model do
                                         state:   "CO",
                                         zip:     "80123")
 
+            shelter2 = Shelter.create( name:    "2 Paws Rescue",
+                                        address: "6567 W Long Dr.",
+                                        city:    "Littleton",
+                                        state:   "CO",
+                                        zip:     "80123")
+
             review1 = shelter1.reviews.create(
                     title: "Awesome",
                     rating: 4,
@@ -96,6 +102,7 @@ describe Shelter, type: :model do
 
             expected = (10.to_f / 3.to_f)
             expect(shelter1.average_rating).to eq(expected)
+            expect(shelter2.average_rating).to eq("N/A")
         end
 
         it "can get number of applications on file" do

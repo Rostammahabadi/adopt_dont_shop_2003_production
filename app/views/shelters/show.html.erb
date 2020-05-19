@@ -4,8 +4,21 @@
     <h2 class="col-6"><%= @shelter.name %></h2>
     <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit", class: "col-3 font-heavy shelter-update-top" %>
     <%= link_to "View Pets", "/shelters/#{@shelter.id}/pets", class: "col-3 font-heavy shelter-update-top" %>
-
 </div>
+
+<div class='row'>
+  <h3 class='col-2 font-heavy'>Shelter Statistics</h3>
+  <div class='col-2 font-heavy'>Number of Pets: <%= @shelter.number_of_pets %></div>
+  <div class='col-2 font-heavy'>Total Applications: <%= @shelter.total_applications %></div>
+  <div class='col-2 font-heavy'>Average Rating: 
+  <% if @shelter.average_rating == "N/A" %>
+    <%= @shelter.average_rating %>
+  <% else %>
+    <%= @shelter.average_rating.round(2) %>
+  <% end %>
+    </div>
+</div>
+
 <div class="row shelter-info"
     <div class="col-6">
         <p class="light-text"><%= @shelter.address %></p>
@@ -13,6 +26,7 @@
         <p class="light-text"><%= @shelter.state %></p>
         <p class="light-text"><%= @shelter.zip %></p>
     </div>
+
     <div class="col-6">
         <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete, class: "font-heavy" %>
     </div>
