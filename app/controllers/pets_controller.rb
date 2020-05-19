@@ -38,8 +38,15 @@ class PetsController < ApplicationController
     end
 
     def destroy
-        Pet.destroy(params[:id])
-        redirect_to "/pets"
+        pet = Pet.find(params[:id])
+        if pet.pet_applications.any? {|application| application.approved }
+            flash[:notice] = "This pet cannot be deleted due to approved applications"
+            redirect_to request.referrer
+        else
+            pet.pet_applications.each {|pet_app| PetApplication.destroy(pet_app.id) }
+            Pet.destroy(pet.id)
+            redirect_to "/pets"
+        end
     end
 
 
