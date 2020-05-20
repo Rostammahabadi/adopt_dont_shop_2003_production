@@ -5,13 +5,15 @@ class PetApplicationsController < ApplicationController
 
   def update
     @pet_application = PetApplication.find(params[:pet_application_id])
-    path_start = @pet_application.redirect_path_start
-    path_end = @pet_application.redirect_path_end
-    approval_status = @pet_application.new_approval_value
-    adoption_status = @pet_application.new_adoption_status
-    @pet_application.update(:approved => approval_status)
-    @pet_application.pet.update(:adoption_status => adoption_status)
-    redirect_to "/#{path_start}/#{path_end}"
+    if @pet_application.approved
+      @pet_application.update(:approved => false)
+      @pet_application.pet.update(:adoption_status => "Adoptable")
+      redirect_to "/applications/#{@pet_application.application_id}"
+    else
+      @pet_application.update(:approved => true)
+      @pet_application.pet.update(:adoption_status => "Pending")
+      redirect_to "/pets/#{@pet_application.pet_id}"
+    end
   end
 
   private
@@ -26,5 +28,4 @@ class PetApplicationsController < ApplicationController
       Application.where("#{app.application_id} = id")
     end.flatten
   end
-
 end

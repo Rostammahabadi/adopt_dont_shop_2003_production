@@ -5,7 +5,7 @@ class ApplicationsController < ApplicationController
 
   def new
     @selected_favorites = favorites.contents.map{ |favorite| Pet.where("#{favorite}=id")[0].name }
-    if @selected_favorites
+    if @selected_favorites.empty?
       redirect_to "/favorites"
       flash[:notice] = "You have no favorites to apply to"
     end
