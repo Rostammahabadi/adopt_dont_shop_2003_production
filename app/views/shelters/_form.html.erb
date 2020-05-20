@@ -1,0 +1,27 @@
+<div class="input-form">
+    <%= form_tag path, method: method do %>
+        <div class="row form-entry">
+            <%= label_tag :name, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :name, "#{default[:name]}", class: "col-8"%>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :address, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :address, "#{default[:address]}", class: "col-8"%>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :city, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :city, "#{default[:city]}", class: "col-8"%>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :state, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :state, "#{default[:state]}", class: "col-8"%>
+        </div>
+        <div class="row form-entry">
+            <%= label_tag :zip, nil, class: "col-3 light-text" %>
+            <%= text_field_tag :zip, "#{default[:zip]}", class: "col-8"%>
+        </div>
+        <div class="row form-entry">
+            <%= submit_tag submit_text, class:"col-3" %>
+        </div>
+    <% end %>
+</div>
